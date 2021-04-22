@@ -12,6 +12,7 @@ public class AutorRequest {
 
     @Email
     @NotBlank
+    @EmailUnico
     private String email;
 
     @NotBlank
