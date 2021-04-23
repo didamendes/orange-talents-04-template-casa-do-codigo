@@ -1,5 +1,8 @@
 package br.com.zupacademy.diogo.casadocodigo.autor;
 
+import br.com.zupacademy.diogo.casadocodigo.categoria.Categoria;
+import br.com.zupacademy.diogo.casadocodigo.validator.ValidatorUnico;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
@@ -12,7 +15,7 @@ public class AutorRequest {
 
     @Email
     @NotBlank
-    @EmailUnico
+    @ValidatorUnico(campo = "email", classes = Autor.class, message = "Email já existente")
     private String email;
 
     @NotBlank
