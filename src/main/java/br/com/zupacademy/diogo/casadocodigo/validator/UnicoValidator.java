@@ -15,7 +15,6 @@ import java.util.List;
 public class UnicoValidator implements ConstraintValidator<ValidatorUnico, Object> {
 
     private String campo;
-    private String value;
     private Class<?> classes;
 
     @PersistenceContext
@@ -25,7 +24,6 @@ public class UnicoValidator implements ConstraintValidator<ValidatorUnico, Objec
     public void initialize(ValidatorUnico constraintAnnotation) {
         campo = constraintAnnotation.campo();
         classes = constraintAnnotation.classes();
-        value = constraintAnnotation.value();
     }
 
     @Override

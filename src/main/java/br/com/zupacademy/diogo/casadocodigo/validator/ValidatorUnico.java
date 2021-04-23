@@ -24,6 +24,4 @@ public @interface ValidatorUnico {
 
     Class<?> classes();
 
-    String value() default "";
-
 }
