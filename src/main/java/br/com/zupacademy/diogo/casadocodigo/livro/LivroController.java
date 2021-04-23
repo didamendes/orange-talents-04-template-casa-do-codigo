@@ -26,6 +26,17 @@ public class LivroController {
         return ResponseEntity.ok(new LivroResponse(livro));
     }
 
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<?> detalhar(@PathVariable Long id) {
+        Livro livro = entityManager.find(Livro.class, id);
+
+        if (livro == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(new DetalheLivroResponse(livro));
+    }
+
     @GetMapping(path = "/todos")
     public ResponseEntity<List<ListLivroResponse>> todos() {
         TypedQuery<Livro> query = entityManager.createQuery("SELECT l FROM Livro l", Livro.class);
