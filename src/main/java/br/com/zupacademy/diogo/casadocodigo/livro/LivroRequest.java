@@ -2,6 +2,7 @@ package br.com.zupacademy.diogo.casadocodigo.livro;
 
 import br.com.zupacademy.diogo.casadocodigo.autor.Autor;
 import br.com.zupacademy.diogo.casadocodigo.categoria.Categoria;
+import br.com.zupacademy.diogo.casadocodigo.validator.ExistId;
 import br.com.zupacademy.diogo.casadocodigo.validator.ValidatorUnico;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -40,9 +41,11 @@ public class LivroRequest {
     private LocalDate dataPublicacao;
 
     @NotNull
+    @ExistId(classes = Categoria.class, campo = "id", message = "Categoria não cadastrado")
     public Long idCategoria;
 
     @NotNull
+    @ExistId(classes = Autor.class, campo = "id", message = "Autor não cadastrado")
     private Long idAutor;
 
     public String getTitulo() {
