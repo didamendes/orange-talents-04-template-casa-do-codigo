@@ -33,5 +33,12 @@ public class ErroDeValidacaoHandler {
 		
 		return dto;
 	}
+
+	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
+	@ExceptionHandler(Exception.class)
+	public ErroDeFormularioDTO handle(Exception ex) {
+		ErroDeFormularioDTO erroDeFormularioDTO = new ErroDeFormularioDTO(ex.getMessage());
+		return erroDeFormularioDTO;
+	}
 	
 }

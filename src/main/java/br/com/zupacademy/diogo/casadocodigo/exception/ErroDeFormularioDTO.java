@@ -6,13 +6,18 @@ public class ErroDeFormularioDTO {
 
 	private String erro;
 
+	public ErroDeFormularioDTO(String erro) {
+		super();
+		this.erro = erro;
+	}
+
 	public ErroDeFormularioDTO(String campo, String erro) {
 		super();
 		this.campo = campo;
 		this.erro = erro;
 	}
 
-	public String getCampo() {
+    public String getCampo() {
 		return campo;
 	}
 
