@@ -13,4 +13,6 @@ public interface EstadoRepository extends JpaRepository<Estado, Long> {
     @Query(" SELECT COUNT(e) FROM Estado e INNER JOIN e.pais p WHERE lower(e.nome) = lower(:nome) AND p.id = :idPais  ")
     Long estadoExisteNoPais(@Param("nome") String nome, @Param("idPais") Long idPais);
 
+    Long countByPaisId(Long id);
+
 }
